@@ -1,0 +1,14 @@
+﻿<div class="col-md-3">
+    <div class="list-group">
+        <!-- ko foreach: forums -->
+        <a class="list-group-item" data-bind="attr: { href: url() }, css: {active: selected()}">
+            <span data-bind="text: name"></span>
+            <span data-bind="visible: readRole" class="glyphicon glyphicon-eye-close"></span>
+            <span class="badge" data-bind="visible: numberOfNewMessages > 0, text: numberOfNewMessages"></span>
+        </a>
+        <!-- /ko -->
+        <!--ko if: isAdministrator -->
+        <a class="list-group-item" href="#forums/add"><span class="fa fa-plus"></span> {{forums.addForum}}</a>
+        <!-- /ko -->
+    </div>
+</div>

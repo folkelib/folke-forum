@@ -1,0 +1,30 @@
+﻿<div id="main-content">
+    <section class="panel panel-default">
+        <div class="panel panel-heading" data-bind="with: poll">
+            <h3 class="panel-title"><span data-bind="text: question" /></h3>
+        </div>
+        <div class="panel panel-body">
+            <!-- ko if: displayOnly-->
+            <div data-bind="foreach: choices">
+                <div data-bind="with: answer">
+                    <span data-bind="text: text" />
+                    <span data-bind="text: count" />
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko ifnot: displayOnly-->
+            <div data-bind="foreach: choices">
+                <div class="radio">
+                    <label>
+                        <input type="radio" data-bind="checked: chosen">
+                        <!-- ko with: answer -->
+                        <span data-bind="text: text"/>
+                        <!-- /ko -->
+                    </label>
+                </div>
+            </div>
+            <div class="panel-body"><button class="btn" data-bind="click: addVote, tooltip: 'Vote'">Vote </button></div>
+            <!-- /ko -->
+        </div>
+    </section>
+</div>

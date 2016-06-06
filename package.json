@@ -1,0 +1,23 @@
+{
+  "name": "folke-forum",
+  "version": "1.0.0",
+  "description": "Forums for Folke",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/folkelib/folke-forum.git"
+  },
+  "keywords": [
+    "folke",
+    "forum"
+  ],
+  "author": "Sidoine De Wispelaere",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/folkelib/folke-forum/issues"
+  },
+  "homepage": "https://github.com/folkelib/folke-forum#readme"
+}

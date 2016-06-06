@@ -1,0 +1,32 @@
+﻿<div id="main-content" data-bind="with: poll">
+    <section class="panel panel-default">
+        <div class="panel panel-heading">
+            <h3 class="panel-title">Question</h3>
+        </div>
+        <div class="panel panel-body">
+            <input class="form-control" data-bind="value: question" />
+        </div>
+        <div class="panel panel-heading">
+            <h3 class="panel-title">Possible Answers</h3>
+        </div>
+        <div class="panel panel-body">
+            <table class="table table-striped">
+                <tbody data-bind="foreach: possibleAnswers">
+                    <tr>
+                        <td>
+                            <input class="form-control" data-bind="value: text" />
+                            <input type="hidden" value="value: id"/>
+                        </td>
+                        <td>
+                            <button class="btn" data-bind="click: $parents[1].removePossibleAnswer, tooltip: 'Remove'"><span class="glyphicon glyphicon-remove" /></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>            
+            <button class="btn btn-primary" data-bind="click: $parent.addPossibleAnswer">Add an answer</button>
+        </div>
+    </section>
+    <section class="panel-footer">
+        <button class="btn btn-primary" data-bind="click: $parent.save">Save poll</button>
+    </section>
+</div>

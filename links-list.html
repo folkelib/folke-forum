@@ -1,0 +1,30 @@
+﻿<section class="col-md-3">
+    <div class="list-group" style="font-size: 90%">
+        <h4 class="list-group-item list-group-item-heading">Liens externes</h4>
+        <!-- ko if: edit -->
+        <!-- ko foreach: links-->
+        <div class="list-group-item">
+            <input placeholder="Titre" type="text" data-bind="value: title"/>
+            <input placeholder="http://" type="text" data-bind="value: url"/> 
+            <a data-bind="attr: {href: url}"><span class="glyphicon glyphicon-link"></span></a>
+            <button class="btn btn-default" data-bind="click: $parent.deleteLink"><span class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-default" data-bind="click: $parent.saveLink"><span class="glyphicon glyphicon-floppy-save"></span></button>
+        </div>
+        <!-- /ko -->
+        <div class="list-group-item"><button class="btn btn-default" data-bind="click: addLink">Ajouter un lien</button></div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: edit -->
+        <!-- ko foreach: links-->
+        <a data-bind="attr: {href: url}, text: title" class="list-group-item"></a>
+        <!-- /ko -->
+        <!-- /ko -->
+
+        <!-- ko if: $root.account.administrator -->
+        <div class="list-group-item">
+            <button class="btn btn-default" data-bind="click: toggleEdit">Editer</button>
+        </div>
+        <!-- /ko -->
+    </div>
+</section>
+

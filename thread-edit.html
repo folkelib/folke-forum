@@ -1,0 +1,53 @@
+﻿<div class="modal fade" id="add-thread" tabindex="-1" role="dialog" data-bind="modal: visible, modalClose: goBack">
+    <div class="modal-dialog">
+        <div class="modal-content" data-bind="with: thread">
+            <form method="post" data-bind="submit: $parent.saveThread" action="/">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Démarrer une discussion</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input class="form-control" type="text" data-bind="textInput: title, validate: title" />
+                    </div>
+                    <div class="form-group">
+                        <label>Texte</label>
+                        <wysiwyg-toolbar params="state: $parent.wysiwyg"></wysiwyg-toolbar>
+                        <div class="form-control" style="height: 300px; overflow-y: scroll" data-bind="wysiwyg: { html: text, state: $parent.wysiwyg }, validate: text"></div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>Tags</label>
+                        <div data-bind="tags: {value: tags, complete: $parent.completeTag }"></div>
+                    </div>-->
+                    <div class="form-group">
+                        <div data-bind="foreach: photos">
+                            <img style="width: 256px; height: 256px" data-bind="attr: {src: '/api/image/' + $data.id + '/thumb' }" />
+                        </div>
+                        <span class="btn btn-success fileinput-button">
+                            <!-- <span class="glyphicon glyphicon-plus"></span>-->
+                            <span>Ajouter une photo...</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input data-bind="imageUpload: $parent.imageUploadOptions" type="file" name="files" />
+                        </span>
+                        <!-- ko if: $parent.imageUploadOptions.progress -->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" data-bind="css: {width: $parent.imageUploadOptions.uploadProgress}"></div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                    <div class="checkbox" data-bind="if: $parent.canSticky">
+                        <label>
+                            <input type="checkbox" data-bind="checked: sticky" />
+                            Epinglé
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" data-bind="enable: $parent.canSave()">Enregistrer</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

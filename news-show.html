@@ -1,0 +1,22 @@
+﻿<div class="panel panel-default" data-bind="if: news">
+    <div class="panel-heading">
+        <a class="panel-title" data-bind="text: news().title, attr: {href: link}"></a>
+        <!-- ko if: canEdit -->
+        <button class="btn btn-default" data-bind="click: $parent.editNews"><span class="glyphicon glyphicon-edit"></span></button>
+        <!-- /ko -->
+    </div>
+    <div class="panel-body">
+        <div data-bind="htmlx: news().text"></div>
+        <div data-bind="foreach: news().photos"><img class="photo" data-bind="attr: {src: fileUrl}" /></div>
+    </div>
+    <div class="panel-footer">
+        <span data-bind="author: author"></span> - Envoyé le <span data-bind="displayDateAndTime: creationDate"></span> - <a href="#" data-bind="click: loadComments"><span data-bind="text:news().numberOfComments"></span> commentaires</a>
+        <!--
+        <iframe data-bind="facebooklike: link"></iframe>
+        -->
+    </div>
+
+    <!-- ko if: commentShown -->
+    <comment-list params="threadId: news().id"></comment-list>
+    <!-- /ko -->
+</div>

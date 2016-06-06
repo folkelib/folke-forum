@@ -1,0 +1,15 @@
+﻿<section class="col-md-9">
+    <div data-bind="with: thread" class="panel panel-primary">
+        <div class="panel-heading"><span data-bind="text: title"></span> <div style="float: right"><span data-bind="author: author"></span> - Envoyé le <span data-bind="dateAndTime: creationDate"></span></div>
+        </div>
+        <div class="panel-body">
+            <p data-bind="htmlx: text"></p>
+        </div>
+        <div class="panel-footer"><!--<button class="btn btn-primary" data-bind="click: $parent.newComment">Répondre</button> -->
+            <!-- ko if: $parent.canEdit --><button class="btn btn-default" data-bind="click: $parent.editThread">Modifier</button><!-- /ko -->
+        </div>
+    </div>
+    <!-- ko if: thread -->
+    <comment-list params="threadId: thread().id"></comment-list>
+    <!-- /ko -->
+</section>

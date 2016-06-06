@@ -1,0 +1,7 @@
+﻿<div class="col-md-9">
+    <div data-bind="if: $root.account.administrator"><p><button class="btn btn-primary" data-bind="click: newNews"><span class="glyphicon glyphicon-pencil"></span> Rédiger une nouvelle</button></p></div>
+
+    <div data-bind="foreach: news">
+        <news params="news: $data"></news>
+    </div>
+</div>

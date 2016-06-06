@@ -1,0 +1,19 @@
+﻿<ul class="list-group">
+    <!-- ko if: canComment -->
+    <li class="list-group-item" data-bind="with: newComment">
+        <form action="/" method="post" data-bind="submit: $parent.addComment">
+            <p>
+                <textarea class="form-control" data-bind="textInput: text"></textarea>
+            </p>
+            <p>
+                <button class="btn btn-default" data-bind="enable: text().length > 0" type="submit">Commenter</button>
+            </p>
+        </form>
+    </li>
+    <!-- /ko -->
+    <!-- ko foreach: comments -->
+    <li class="list-group-item">
+        <comment-show params="comment: $data"></comment-show>
+    </li>
+    <!-- /ko -->
+</ul>

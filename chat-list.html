@@ -1,0 +1,30 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <!-- ko if: canSendChat -->
+        <div data-bind="with: newChat">
+            <form data-bind="submit: $parent.sendChat" method="post">
+                <div class="input-group">
+                    <input data-bind="textInput: text" type="text" class="form-control" maxlength="250" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" data-bind="enable: text().length > 0">Envoyer</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <!-- /ko -->
+
+        <table class="table">
+            <tbody data-bind="foreach: chats">
+                <tr data-bind="if: $parent.dateChanged($index)">
+                    <td colspan="4" class="chat-date" data-bind="longDate: creationDate"></td>
+                </tr>
+                <tr>
+                    <td><!-- ko if:author().profileImageUrl--><img class="author" data-bind="attr: {src: author().profileImageUrl}" /><!-- /ko --></td>
+                    <td><span class="chat-name" data-bind="text: author().userName, click: $parent.addNameToChat"></span></td>
+                    <td><span class="chat-hour" data-bind="time: creationDate, click: $parent.addHourToChat"></span></td>
+                    <td width="100%" data-bind="chat: text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

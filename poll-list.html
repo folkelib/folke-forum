@@ -1,0 +1,32 @@
+﻿<div id="main-content">
+    <section class="panel panel-default">
+        <div class="panel">
+            <span class="panel-default"><a href="#poll">Add Poll</a></span>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Id #</td>
+                    <td>Question</td>
+                    <td>Author</td>
+                    <td>Open Date</td>
+                    <td>Close Date</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: polls">
+                <tr>
+                    <td><a data-bind="attr: {href: '#poll-vote/'+id}, tooltip: 'Vote'"><span data-bind="text: id" /></a></td>
+                    <td><span data-bind="text: question" /></td>
+                    <td><span data-bind="text: author().nickname" /></td>
+                    <td><span data-bind="text: openDate" /></td>
+                    <td><span data-bind="text: closeDate" /></td>
+                    <td>
+                        <a data-bind="attr: {href: '#poll/'+id}, tooltip: 'Edit'"><span class="glyphicon glyphicon-edit" /></a>
+                        <button class="btn" data-bind="click: $parent.removePoll, tooltip: 'Remove'"><span class="glyphicon glyphicon-remove" /></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+</div>

@@ -1,0 +1,17 @@
+﻿<div class="panel panel-default">
+    <table class="table table-striped">
+        <tbody data-bind="foreach: threads">
+            <tr data-bind="css: {success: $parent.isNew($data) }">
+                <td><a data-bind="text: title, attr: { href: $parent.getUrl($data) }, tooltip: resume"></a> <span class="badge" data-bind="visible: newComments > 0, text: newComments"></span></td>
+                <td data-bind="author: author"></td>
+                <td data-bind="displayDateAndTime: creationDate"></td>
+                <td><span class="fa fa-icon-pushpin" data-bind="visible: sticky"></span></td>
+                <td><span data-bind="if: canEdit"><button class="btn btn-default" data-bind="click: $parent.editThread"><span class="glyphicon glyphicon-edit"></span></button></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div data-bind="if: canWrite" class="panel-footer">
+        <button class="btn btn-primary" data-bind="click: newThread">{{forums.newThread}}</button>
+    </div>
+</div>
+

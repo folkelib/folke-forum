@@ -1,0 +1,9 @@
+﻿ <!-- ko ifnot: editMode -->
+<span data-bind="author: comment().author"></span>
+<span data-bind="chat: comment().text"></span>
+<span data-bind="if: canEdit"><button class="btn btn-default btn-sm" data-bind="click: editComment"><span class="glyphicon glyphicon-pencil"></span></button></span>
+<!-- /ko -->
+<!-- ko if: editMode -->
+<p><textarea class="form-control" data-bind="textInput: comment().text"></textarea></p>
+<p><button class="btn btn-default" data-bind="enable: comment().text().length > 0, click: saveComment" type="submit">Enregistrer</button></p>
+<!-- /ko -->

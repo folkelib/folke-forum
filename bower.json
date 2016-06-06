@@ -1,0 +1,28 @@
+{
+  "name": "folke-forum",
+  "description": "Forums for Folke",
+  "main": "index.js",
+  "authors": [
+    "Sidoine De Wispelaere"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "folke",
+    "forum"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "homepage": "https://github.com/folkelib/folke-forum",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "folke-identity": "*",
+    "folke-ko-wysiwyg": "*"
+  }
+}
