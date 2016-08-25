@@ -5,6 +5,7 @@ import * as ko from 'knockout';
 import * as koExtensions from './ko-extensions';
 import * as wysiwyg from '../folke-ko-wysiwyg/wysiwyg';
 import * as imageUpload from '../folke-ko-imageupload/folke-ko-imageupload';
+import * as localization from 'folke-ko-localization';
 
 export function register(basePath: string) {
     koExtensions.register();

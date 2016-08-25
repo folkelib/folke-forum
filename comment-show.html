@@ -5,5 +5,5 @@
 <!-- /ko -->
 <!-- ko if: editMode -->
 <p><textarea class="form-control" data-bind="textInput: comment().text"></textarea></p>
-<p><button class="btn btn-default" data-bind="enable: comment().text().length > 0, click: saveComment" type="submit">Enregistrer</button></p>
+<p><button class="btn btn-default" data-bind="enable: comment().text().length > 0, click: saveComment" type="submit">{{forum.save}}</button></p>
 <!-- /ko -->

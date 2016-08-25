@@ -6,7 +6,7 @@
                 <div class="input-group">
                     <input data-bind="textInput: text" type="text" class="form-control" maxlength="250" />
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit" data-bind="enable: text().length > 0">Envoyer</button>
+                        <button class="btn btn-default" type="submit" data-bind="enable: text().length > 0">{{forum.send}}</button>
                     </span>
                 </div>
             </form>

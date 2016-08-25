@@ -10,7 +10,7 @@
         <div data-bind="foreach: news().photos"><img class="photo" data-bind="attr: {src: fileUrl}" /></div>
     </div>
     <div class="panel-footer">
-        <span data-bind="author: author"></span> - Envoyé le <span data-bind="displayDateAndTime: creationDate"></span> - <a href="#" data-bind="click: loadComments"><span data-bind="text:news().numberOfComments"></span> commentaires</a>
+        <span data-bind="author: author"></span> - {{forum.writtenOn}} <span data-bind="displayDateAndTime: creationDate"></span> - <a href="#" data-bind="click: loadComments"><span data-bind="text:news().numberOfComments"></span> {{forum.commentsLowerCase}}</a>
         <!--
         <iframe data-bind="facebooklike: link"></iframe>
         -->
